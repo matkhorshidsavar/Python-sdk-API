@@ -6,17 +6,17 @@ from aptos_sdk import RestClient as AptosClient
 from ton import TonClient
 from sui_sdk import SuiClient
 
-‎# تنظیمات اولیه
-app = Flask(__name__)
 
-‎# اتصال به نودهای عمومی
+app = Flask(__Bit3un__)
+
+
 TON_NODE_URL = "https://toncenter.com/api/v2/jsonRPC"
 APTOS_NODE_URL = "https://fullnode.mainnet.aptoslabs.com"
 SOLANA_NODE_URL = "https://api.mainnet-beta.solana.com"
 ARB_NODE_URL = "https://arb1.arbitrum.io/rpc"
 SUI_NODE_URL = "https://fullnode.mainnet.sui.io"
 
-‎# کلاینت‌ها
+
 ton_client = TonClient(TON_NODE_URL)
 aptos_client = AptosClient(APTOS_NODE_URL)
 solana_client = SolanaClient(SOLANA_NODE_URL)
@@ -25,7 +25,7 @@ sui_client = SuiClient(SUI_NODE_URL)
 
 @app.route("/generate_address", methods=["POST"])
 def generate_address():
-‎    """ایجاد آدرس جدید برای هر شبکه"""
+
     data = request.json
     network = data.get("network")
     
@@ -46,7 +46,7 @@ def generate_address():
 
 @app.route("/deposit", methods=["POST"])
 def deposit():
-‎    """بررسی واریزها در شبکه‌های مختلف"""
+
     data = request.json
     network = data.get("network")
     address = data.get("address")
@@ -68,7 +68,7 @@ def deposit():
 
 @app.route("/withdraw", methods=["POST"])
 def withdraw():
-‎    """ارسال وجه در شبکه‌های مختلف"""
+
     data = request.json
     network = data.get("network")
     to_address = data.get("to_address")
